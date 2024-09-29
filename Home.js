@@ -6,7 +6,6 @@ import Slider from '@react-native-community/slider';
 
 export default function App({route, navigation}) {
   const [minutes, setMinutes] = useState(15)
-  console.log(minutes)
   return (
     <KeyboardAvoidingView style={styles.container} enabled={false}>
       <View style={styles.titleContainer}>
@@ -19,7 +18,7 @@ export default function App({route, navigation}) {
             ref={input => {this.textInput = input}}
             style={styles.invisInput} 
             keyboardType="numeric" 
-            onChangeText={val => setMinutes(val)} 
+            onChangeText={val => setMinutes(parseInt(val))} 
             onPressIn={val => {
                 this.textInput.clear();
                 setMinutes(0)}} />
